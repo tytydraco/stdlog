@@ -15,10 +15,8 @@ The usage is extremely basic. There are four log levels:
 * Warning: non-fatal but undesirable info
 * Error: potentially fatal info
 
-Each log level has a prefix that can be configured via the global String: `prefix<LEVEL>`. The default prefix
-is `[<LEVEL>]\t`.
+The base class for a log level is `LogLevel`. New log levels can be instantiated this way, but by default, the four 
+above are already globally accessible.
 
-Each log level can be toggled via the global boolean: `shouldLog<LEVEL>`. All log levels are enabled by default.
-
-A log handler can be set to determine what should be done with the log content. By default, this is set to just pipe the
-output to `stdio.writeln`.
+Each log level has a `name` (the denotation of this level), a boolean called `error` that will use `stderr` over 
+`stdout` if enabled, and a `prefix` and `suffix`, usually for ANSI escapes.
