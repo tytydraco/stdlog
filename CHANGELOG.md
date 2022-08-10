@@ -1,3 +1,7 @@
+## 1.0.4
+
+* Remove stack frame
+
 ## 1.0.3
 
 * Refactor the project again

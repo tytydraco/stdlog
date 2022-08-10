@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:stack_trace/stack_trace.dart';
-
 final _hasAnsi = stdout.supportsAnsiEscapes;
 
 /// Wrap some [content] with an [ansiCode] if the terminal supports it.
@@ -17,10 +15,7 @@ String? _makeRecord(String label, Object? message) {
   if (messageContent == null) return null;
 
   final isoTimestamp = DateTime.now().toIso8601String();
-  final trace = Trace.current(2).frames.first;
-  final where = '${trace.member}';
-
-  return '[$isoTimestamp|$where] $label $messageContent';
+  return '[$isoTimestamp] $label $messageContent';
 }
 
 /// Log low-level debug content. The [message] can also be an anonymous function
