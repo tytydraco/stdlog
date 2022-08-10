@@ -12,6 +12,10 @@ void main() {
   std.warn.log('Crazy math here, be warned!');
 
   if ((x + y) != result) {
-    std.error.log('$x + $y != $result; error!');
+    // We can use functions as well.
+    std.error.log(() {
+      const actual = x + y;
+      return '$x + $y != $result, it equals $actual; error!';
+    });
   }
 }

@@ -27,8 +27,15 @@ class LogLevel {
   String suffix;
 
   /// Write some content to the output handler.
-  void log(Object message) {
+  void log(Object? message) {
     if (!enabled) return;
+
+    // Evaluate an anonymous function that returns some content.
+    final messageContent = message is Object? Function()
+      ? message.call()
+      : message;
+
+    if (message == null) return;
 
     var output = '';
 
@@ -41,7 +48,7 @@ class LogLevel {
     output += name;
     output += ' ';
 
-    output += message.toString();
+    output += messageContent.toString();
 
     output += suffix;
 
