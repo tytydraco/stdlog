@@ -1,6 +1,6 @@
 name: stdlog
 description: A wrapper around the built-in stdio IOSinks using the KISS principle.
-version: 1.0.1
+version: 1.0.2
 repository: https://github.com/tytydraco/stdlog
 
 environment:

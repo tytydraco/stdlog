@@ -1,3 +1,9 @@
+## 1.0.2
+
+* Accept anonymous functions for message
+* Use gray color for debug
+* Do not log null entries
+
 ## 1.0.1
 
 * Refactor entire project
