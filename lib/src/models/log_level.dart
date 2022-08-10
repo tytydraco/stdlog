@@ -31,9 +31,8 @@ class LogLevel {
     if (!enabled) return;
 
     // Evaluate an anonymous function that returns some content.
-    final messageContent = message is Object? Function()
-      ? message.call()
-      : message;
+    final messageContent =
+        message is Object? Function() ? message.call() : message;
 
     if (message == null) return;
 
