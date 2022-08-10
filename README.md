@@ -15,8 +15,9 @@ The usage is extremely basic. There are four log levels:
 * Warning: non-fatal but undesirable info
 * Error: potentially fatal info
 
-The base class for a log level is `LogLevel`. New log levels can be instantiated this way, but by default, the four 
-above are already globally accessible.
+Simply import the `stdlog` package, usually aliasing it, and then call one of the four log level functions. Messages 
+can be a regular `Object`, or a `Function` that returns a `String`.
 
-Each log level has a `name` (the denotation of this level), a boolean called `error` that will use `stderr` over 
-`stdout` if enabled, and a `prefix` and `suffix`, usually for ANSI escapes.
+The typical output contains a timestamp, the caller function's name, the log level label, and then the log message:
+
+`[2022-08-10T13:22:13.363542|main] E 7 + 12 != 46, it equals 19; error!`
