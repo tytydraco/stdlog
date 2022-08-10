@@ -7,7 +7,7 @@ final _hasAnsi = stdout.supportsAnsiEscapes;
 /// [LogLevel] typically for internal tracing.
 final debug = LogLevel(
   name: 'D\t',
-  prefix: _hasAnsi ? '\x1B[40m' : '',
+  prefix: _hasAnsi ? '\x1B[37m' : '',
   suffix: _hasAnsi ? '\x1B[0m' : '',
 );
 
