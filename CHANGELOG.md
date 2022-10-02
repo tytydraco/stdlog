@@ -1,3 +1,8 @@
+## 1.0.5
+
+* Always keep microseconds with ISO 8601 format
+* Use UTC format
+
 ## 1.0.4
 
 * Remove stack frame

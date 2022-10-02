@@ -10,11 +10,18 @@ String _withAnsi(String content, String ansiCode) =>
 String? _makeRecord(String label, Object? message) {
   // Evaluate an anonymous function that returns some content.
   final messageContent =
-      message is Object? Function() ? message.call() : message;
+  message is Object? Function() ? message.call() : message;
 
   if (messageContent == null) return null;
 
-  final isoTimestamp = DateTime.now().toIso8601String();
+  final now = DateTime.now().toUtc();
+
+  // Always keep the microseconds, even if they are zero.
+  var isoTimestamp = now.toIso8601String();
+  if (now.microsecond == 0) {
+    isoTimestamp = '${isoTimestamp.substring(0, isoTimestamp.length - 1)}000Z';
+  }
+
   return '[$isoTimestamp] $label $messageContent';
 }
 
